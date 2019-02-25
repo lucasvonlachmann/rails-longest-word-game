@@ -1,0 +1,23 @@
+<h1>New Games</h1>
+
+<br>
+<br>
+
+<div class='letters-box'>
+  <% @letters.each do |letter| %>
+    <div class='letter-box'>
+      <h3><%= letter %></h3>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+<form action="/score" method="post" class="form-inline">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="word">Your word:</label>
+  <%= hidden_field_tag 'letters', @letters %>
+  <input type="text" name="word" placeholder="A word...">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
